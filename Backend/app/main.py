@@ -3,9 +3,25 @@ from sqlalchemy.orm import Session
 from app.database import init_db
 from app.routes import summary_routes, user_routes
 from fastapi.security import APIKeyHeader, OAuth2PasswordBearer
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
+
+# Define allowed origins (Frontend URL)
+origins = [
+    "http://localhost:5174",  # React frontend
+]
+
+# Enable CORS middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,  # Allows only specific origins
+    allow_credentials=True,
+    allow_methods=["*"],  # Allows all HTTP methods (GET, POST, etc.)
+    allow_headers=["*"],  # Allows all headers
+)
+
 
 @app.on_event("startup")
 def startup():
