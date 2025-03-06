@@ -156,10 +156,18 @@
     cursor: pointer;
     transition: var(--transition);
     font-size: 0.9rem;
+    outline: none;
   }
   
   .switch-mode-button:hover {
     text-decoration: underline;
+    background: transparent !important;
+  }
+
+  .switch-mode-button:focus {
+    text-decoration: underline;
+    background: transparent !important;
+    outline: none;
   }
   
   .social-auth {
