@@ -1,0 +1,240 @@
+:root {
+    --primary-light: #ffffff;
+    --primary-dark: #f7f9fc;
+    --accent: #2563eb;
+    --accent-light: #3b82f6;
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --border-radius: 8px;
+    --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    --transition: all 0.3s ease;
+  }
+  body {
+    display: block !important;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', 'Roboto', sans-serif;
+  }
+  
+  .auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--primary-dark);
+    padding: 1.5rem;
+  }
+  
+  .auth-card {
+    background-color: var(--primary-light);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    width: 100%;
+    max-width: 450px;
+    padding: 2.5rem;
+  }
+  
+  .auth-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .logo {
+    margin-bottom: 1.5rem;
+  }
+  
+  .logo-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+  
+  .accent {
+    color: var(--accent);
+  }
+  
+  .auth-header h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+  }
+  
+  .subtitle {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+  }
+  
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-primary);
+  }
+  
+  input {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: var(--border-radius);
+    background-color: var(--primary-light);
+    font-size: 1rem;
+    color: var(--text-primary);
+    transition: var(--transition);
+  }
+  
+  input:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+  }
+  
+  input::placeholder {
+    color: var(--text-secondary);
+    opacity: 0.6;
+  }
+  
+  .forgot-password {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1.5rem;
+  }
+  
+  .forgot-password a {
+    font-size: 0.85rem;
+    color: var(--accent);
+    text-decoration: none;
+    transition: var(--transition);
+  }
+  
+  .forgot-password a:hover {
+    text-decoration: underline;
+  }
+  
+  .submit-button {
+    width: 100%;
+    padding: 0.875rem;
+    background-color: var(--accent);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    margin-bottom: 1.5rem;
+  }
+  
+  .submit-button:hover {
+    background-color: var(--accent-light);
+  }
+  
+  .auth-footer {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .auth-footer p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+  }
+  
+  .switch-mode-button {
+    background: none;
+    border: none;
+    color: var(--accent);
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 0.9rem;
+  }
+  
+  .switch-mode-button:hover {
+    text-decoration: underline;
+  }
+  
+  .social-auth {
+    margin-top: 1.5rem;
+  }
+  
+  .divider {
+    display: flex;
+    align-items: center;
+    margin: 1.5rem 0;
+  }
+  
+  .divider::before,
+  .divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  
+  .divider span {
+    padding: 0 1rem;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+  
+  .social-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  
+  .social-button {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    background-color: var(--primary-light);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: var(--border-radius);
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: var(--transition);
+  }
+  
+  .social-button:hover {
+    background-color: var(--primary-dark);
+  }
+  
+  .social-button svg {
+    fill: var(--text-primary);
+    width: 18px;
+    height: 18px;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 480px) {
+    .auth-card {
+      padding: 1.5rem;
+    }
+    
+    .social-buttons {
+      flex-direction: column;
+    }
+    
+    .auth-header h1 {
+      font-size: 1.5rem;
+    }
+    
+    .logo-text {
+      font-size: 1.25rem;
+    }
+  }
