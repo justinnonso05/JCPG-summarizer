@@ -9,6 +9,7 @@ const Auth = () => {
     password: "",
     confirmPassword: "",
   });
+  
   const [error, setError] = useState("");
   
   const switchModeHandler = () => {
