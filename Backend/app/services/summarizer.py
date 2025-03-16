@@ -1,16 +1,31 @@
-import requests
+import asyncio
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
+from webdriver_manager.chrome import ChromeDriverManager
 from bs4 import BeautifulSoup
-from google import genai
+import google.generativeai as genai
+
+genai.configure(api_key="AIzaSyCNVflqzF3wglnX3-1uc-lgjo36R89thCE")
 
 async def summarize_text(url):
-    response = requests.get(url)
-    soup = BeautifulSoup(response.text, "html.parser")
-    text = soup.get_text(separator=" ", strip=True)
+    options = Options()
+    options.add_argument("--headless")
+    options.add_argument("--disable-gpu")
+    options.add_argument("--no-sandbox")
+    options.add_argument("--disable-dev-shm-usage")
 
-    client = genai.Client(api_key="AIzaSyCNVflqzF3wglnX3-1uc-lgjo36R89thCE")
-    response = client.models.generate_content(
-        model="gemini-2.0-flash", contents=f"Summarize this text, '{text}', it is the content of a we page. so let the summary be like you are telling the users about the webpage. Just start with the summary, no preambles or introductions. Just the summary. Then remove all linebreaks formatting and bold formatting"
-    )
+    service = Service(ChromeDriverManager().install())
+    driver = webdriver.Chrome(service=service, options=options)
+
+    driver.get(url)
+    await asyncio.sleep(5)  # Asynchronous sleep
+
+    soup = BeautifulSoup(driver.page_source, "html.parser")
+    text = soup.get_text(separator=" ", strip=True)
+    driver.quit()
+
+    model = genai.GenerativeModel("gemini-1.5-flash")
+    response = await asyncio.to_thread(model.generate_content, f"Summarize this text: '{text}'")
 
     return response.text
-

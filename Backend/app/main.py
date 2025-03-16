@@ -10,9 +10,9 @@ oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
 # Define allowed origins (Frontend URL)
 origins = [
-    "http://localhost:5173",  # React frontend
+    "http://127.0.0.1:5500",  # Your frontend running on this port
+    "http://localhost:5500",   # Alternative localhost URL
 ]
-
 # Enable CORS middleware
 app.add_middleware(
     CORSMiddleware,
