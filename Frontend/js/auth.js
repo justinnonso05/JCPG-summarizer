@@ -55,15 +55,9 @@ document.addEventListener("DOMContentLoaded", function () {
             const data = await response.json();
             
             if (response.ok) {
-<<<<<<< HEAD
                 localStorage.setItem("access_token", data.access_token);
                 showSuccess("Login successful!");
                 window.location.href = "http://127.0.0.1:5500/Frontend/index.html";
-=======
-                localStorage.setItem("authToken", data.token);
-                showSuccess("Login successful!");
-                window.location.href = "http://127.0.0.1:5500/Frontend/index.html?";
->>>>>>> 2431056fa6dce8d87150bb8ba16a657e5e9e222d
             } else {
                 showError(data.detail || "Invalid email or password.");
             }
@@ -101,8 +95,4 @@ document.addEventListener("DOMContentLoaded", function () {
             showError("Network error. Please try again.");
         }
     });
-<<<<<<< HEAD
 });
-=======
-});
->>>>>>> 2431056fa6dce8d87150bb8ba16a657e5e9e222d
