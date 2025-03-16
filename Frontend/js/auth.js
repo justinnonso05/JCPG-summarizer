@@ -55,9 +55,9 @@ document.addEventListener("DOMContentLoaded", function () {
             const data = await response.json();
             
             if (response.ok) {
-                localStorage.setItem("authToken", data.token);
+                localStorage.setItem("access_token", data.access_token);
                 showSuccess("Login successful!");
-                window.location.href = "http://127.0.0.1:5500/Frontend/index.html?";
+                window.location.href = "http://127.0.0.1:5500/Frontend/index.html";
             } else {
                 showError(data.detail || "Invalid email or password.");
             }
