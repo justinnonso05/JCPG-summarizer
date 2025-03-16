@@ -182,7 +182,10 @@
     border-radius: var(--border-radius);
     padding: 1rem;
     cursor: pointer;
+<<<<<<< HEAD
     word-wrap: break-word;
+=======
+>>>>>>> 2431056fa6dce8d87150bb8ba16a657e5e9e222d
     transition: transform var(--transition-speed), box-shadow var(--transition-speed);
   }
   
@@ -214,6 +217,7 @@
     display: block;
     text-align: right;
   }
+<<<<<<< HEAD
 
   #summary-url {
     font-size: 1.2em;
@@ -221,6 +225,8 @@
     margin-bottom: 10px;
     color: var(--text-primary);
 }
+=======
+>>>>>>> 2431056fa6dce8d87150bb8ba16a657e5e9e222d
   
   .empty-state {
     text-align: center;
